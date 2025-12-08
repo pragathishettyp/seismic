@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seismic Data Display - Component Example</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin: 0 0 16px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .examples {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .example-section {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .example-section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 12px;
+        }
+        
+        .example-section p {
+            color: #546e7a;
+            line-height: 1.6;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 16px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .controls button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            background: #3498db;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .controls button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .controls input {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌊 Seismic Data Display Component</h1>
+            <p>Interactive examples demonstrating ServiceNow Next Experience UI Framework concepts</p>
+        </div>
+        
+        <div class="examples">
+            <!-- Example 1: Default Component -->
+            <div class="example-section">
+                <h2>Example 1: Default Configuration</h2>
+                <p>This example shows the component with all default properties.</p>
+                <seismic-data-display></seismic-data-display>
+            </div>
+            
+            <!-- Example 2: Custom Properties -->
+            <div class="example-section">
+                <h2>Example 2: Custom Properties</h2>
+                <p>This example demonstrates custom title, description, and inactive status.</p>
+                <seismic-data-display
+                    title="Custom Seismic Monitor"
+                    description="This component has custom properties configured"
+                    is-active="false">
+                </seismic-data-display>
+            </div>
+            
+            <!-- Example 3: With Advanced Options -->
+            <div class="example-section">
+                <h2>Example 3: Advanced Options Enabled</h2>
+                <p>This example shows the component with advanced options visible.</p>
+                <seismic-data-display
+                    title="Advanced Configuration"
+                    description="Advanced options are enabled for this instance"
+                    show-advanced="true">
+                </seismic-data-display>
+            </div>
+            
+            <!-- Example 4: Programmatic Control -->
+            <div class="example-section">
+                <h2>Example 4: Programmatic Control</h2>
+                <p>Control the component programmatically using JavaScript.</p>
+                
+                <div class="controls">
+                    <input type="text" id="customTitle" placeholder="Enter custom title" value="Programmatically Controlled">
+                    <button onclick="updateComponentTitle()">Update Title</button>
+                    <button onclick="toggleActive()">Toggle Active Status</button>
+                    <button onclick="toggleAdvanced()">Toggle Advanced</button>
+                </div>
+                
+                <seismic-data-display id="programmableComponent"></seismic-data-display>
+                
+                <div class="code-block">
+// JavaScript to control the component<br>
+const component = document.getElementById('programmableComponent');<br>
+component.title = 'New Title';<br>
+component.isActive = !component.isActive;<br>
+component.showAdvanced = !component.showAdvanced;
+                </div>
+            </div>
+            
+            <!-- Documentation Section -->
+            <div class="example-section">
+                <h2>📚 Key Concepts Demonstrated</h2>
+                <ul style="line-height: 2;">
+                    <li><strong>Properties:</strong> Externally configurable attributes (title, description, isActive, showAdvanced)</li>
+                    <li><strong>State Management:</strong> Internal state tracking (clickCount, inputValue, lastClickTime)</li>
+                    <li><strong>Event Handling:</strong> User interactions trigger state updates and custom events</li>
+                    <li><strong>Action Handlers:</strong> Lifecycle events (COMPONENT_BOOTSTRAPPED) and custom actions</li>
+                    <li><strong>View Function:</strong> Declarative UI rendering based on state and properties</li>
+                    <li><strong>Styling:</strong> SCSS with modern design patterns and responsive layout</li>
+                </ul>
+                
+                <h3>Usage in ServiceNow</h3>
+                <div class="code-block">
+&lt;seismic-data-display<br>
+&nbsp;&nbsp;title="My Component"<br>
+&nbsp;&nbsp;description="Component description"<br>
+&nbsp;&nbsp;is-active="true"<br>
+&nbsp;&nbsp;show-advanced="false"&gt;<br>
+&lt;/seismic-data-display&gt;
+                </div>
+                
+                <h3>Component API</h3>
+                <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                    <thead>
+                        <tr style="background: #ecf0f1;">
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Property</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Type</th>
+                            <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Default</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">title</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">String</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">'Seismic Data Display Component'</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">description</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">String</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">'A comprehensive component...'</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">isActive</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">Boolean</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">true</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd;">showAdvanced</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">Boolean</td>
+                            <td style="padding: 12px; border: 1px solid #ddd;">false</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Note: In a real ServiceNow environment, the component would be loaded via the framework
+        // This is a demonstration of how to interact with the component programmatically
+        
+        function updateComponentTitle() {
+            const component = document.getElementById('programmableComponent');
+            const newTitle = document.getElementById('customTitle').value;
+            if (component && newTitle) {
+                component.title = newTitle;
+                console.log('Title updated to:', newTitle);
+            }
+        }
+        
+        function toggleActive() {
+            const component = document.getElementById('programmableComponent');
+            if (component) {
+                component.isActive = !component.isActive;
+                console.log('Active status toggled to:', component.isActive);
+            }
+        }
+        
+        function toggleAdvanced() {
+            const component = document.getElementById('programmableComponent');
+            if (component) {
+                component.showAdvanced = !component.showAdvanced;
+                console.log('Advanced options toggled to:', component.showAdvanced);
+            }
+        }
+        
+        // Listen for custom events from the component
+        document.addEventListener('SEISMIC_DATA_UPDATED', (event) => {
+            console.log('Seismic data updated event received:', event.detail);
+        });
+        
+        // Log when page loads
+        window.addEventListener('load', () => {
+            console.log('Seismic Data Display examples loaded');
+            console.log('Open browser console to see component events and logs');
+        });
+    </script>
+</body>
+</html>

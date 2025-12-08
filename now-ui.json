@@ -1,0 +1,170 @@
+{
+  "components": {
+    "seismic-data-display": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Seismic Data Display",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "A comprehensive component demonstrating ServiceNow Next Experience UI Framework concepts including properties, state management, events, and action handlers",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "example-hello-world": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "My Component",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "A description of my component",
+        "category": "primitives"
+      },
+      "shortcuts": [
+        {
+          "name": "",
+          "description": "",
+          "shortcut": {
+            "mac": {
+              "shiftKey": false,
+              "altKey": false,
+              "metaKey": false,
+              "key": ""
+            }
+          },
+          "actionKey": "",
+          "actionPayload": {}
+        }
+      ],
+      "suspendOnViewChange": false
+    },
+    "my-tag": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Click Counter",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "A simple click counter component with increment and clear functionality",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "component-view": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": " Component View",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To view component properties",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "component-context": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Component Context",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To view component context",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "component-update-properties": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Component Update Properties",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To update component properties",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "component-action-handler": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Component Action Handler",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To handle component actions",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "component-lifecycle-action-handler": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Component Lifecycle Action Handler",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To handle component lifecycle actions",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "example-checklist": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Example Checklist",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To handle component lifecycle actions",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    },
+    "example-checklist-item": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Example Checklist Item",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To handle component lifecycle actions",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
+    }
+  },
+  "scopeName": "sn_hello_world"
+}

@@ -1,0 +1,56 @@
+{
+	"name": "sn-component-hello-world",
+	"version": "0.0.1",
+	"private": false,
+	"description": "My first UI Framework Component!",
+	"keywords": [
+		"ServiceNow",
+		"Seismic Component",
+		"sn-component-hello-world"
+	],
+	"readme": "./README.md",
+	"scripts": {
+		"build": "tectonic pack",
+		"ci": "npm ci && npm run build",
+		"start": "tectonic develop --open",
+		"test": "tectonic test unit",
+		"test:unit:coverage": "tectonic test unit --coverage",
+		"test:functional": "tectonic test functional --browsers Chrome --testTimeout 10000",
+		"test:functional:coverage": "tectonic test functional --coverage --browsers Chrome --testTimeout 10000",
+		"test:functional:debug": "tectonic test functional --browsers Chrome --testTimeout 10000 --no-single-run",
+		"test:functional:visible": "CHROME_BIN=/Applications/Google\\ Chrome.app/Contents/MacOS/Google\\ Chrome tectonic test functional --browsers Chrome --testTimeout 10000 --no-single-run --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://code.devsnc.com/dev/sn-component-hello-world"
+	},
+	"engines": {
+		"node": ">=22"
+	},
+	"module": "src/index.js",
+	"dependencies": {
+	"@servicenow/behavior-rtl": "60.2.0",
+        "@servicenow/now-avatar": "60.2.0",
+        "@servicenow/now-button": "60.2.0",
+        "@servicenow/now-card": "60.2.0",
+        "@servicenow/now-icon": "60.2.0",
+        "@servicenow/now-heading": "60.2.0",
+        "@servicenow/now-input": "60.2.0",
+        "@servicenow/now-label-value": "60.2.0",
+        "@servicenow/now-loader": "60.2.0",
+        "@servicenow/now-modal": "60.2.0",
+        "@servicenow/now-toggle": "60.2.0",
+        "@servicenow/sass-kit": "26.5.0",
+        "@servicenow/ui-core": "25.1.8",
+        "@servicenow/ui-effect-http": "25.1.8",
+        "@servicenow/ui-renderer-snabbdom": "25.1.8"
+	},
+	"devDependencies": {
+		"@tectonic/cli": "29.4.5",
+		"@tectonic/eslint-plugin-tectonic": "29.4.5",
+		"@tectonic/test-api": "29.4.5",
+		"chai": "^6.2.1",
+		"sinon": "^21.0.0",
+		"sinon-chai": "^4.0.1"
+	}
+}
