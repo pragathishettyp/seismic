@@ -164,6 +164,21 @@
       },
       "shortcuts": [],
       "suspendOnViewChange": false
+    },
+    "checklist-element": {
+      "innerComponents": [],
+      "uiBuilder": {
+        "associatedTypes": [
+          "global.core",
+          "global.landing-page"
+        ],
+        "label": "Checklist Element",
+        "tileIcon": "./tile-icon/generic-tile-icon.svg",
+        "description": "To handle component lifecycle actions",
+        "category": "primitives"
+      },
+      "shortcuts": [],
+      "suspendOnViewChange": false
     }
   },
   "scopeName": "sn_hello_world"
