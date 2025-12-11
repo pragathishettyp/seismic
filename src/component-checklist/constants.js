@@ -4,3 +4,12 @@ export const CREATE_ITEM_REQUESTED = 'CREATE_ITEM_REQUESTED';
 export const ENTER_KEY_CODE = 13;
 export const TOGGLE_CLICKED = 'TOGGLE_CLICKED';
 export const DELETE_CLICKED = 'DELETE_CLICKED';
+export const SHOW_ALL_ITEMS = 'SHOW_ALL_ITEMS';
+export const SHOW_INCOMPLETE_ITEMS = 'SHOW_INCOMPLETE_ITEMS';
+export const SHOW_COMPLETE_ITEMS = 'SHOW_COMPLETE_ITEMS';
+export const FILTER = {
+	ALL: 'all',
+	INCOMPLETE: 'incomplete',
+	COMPLETE: 'complete'
+};
+

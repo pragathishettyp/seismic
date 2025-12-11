@@ -2,8 +2,8 @@ import '@servicenow/now-heading';
 import '@servicenow/now-button';
 import '@servicenow/now-input';
 import checklistItem from '../checklist-item/view';
-import {CHECKLIST_ITEM_ADD,ENTER_KEY_CODE} from '../constants';
-import {TOGGLE_CLICKED, DELETE_CLICKED} from '../constants';
+import {CHECKLIST_ITEM_ADD,ENTER_KEY_CODE, SHOW_ALL_ITEMS, SHOW_INCOMPLETE_ITEMS, SHOW_COMPLETE_ITEMS, FILTER} from '../constants';
+import {TOGGLE_CLICKED, DELETE_CLICKED, GET_TOGGLE_COUNT_ENABLED, GET_TOGGLE_COUNT_DISABLED} from '../constants';
 // import '@servicenow/now-input-wrapper';
 // import '@servicenow/now-container';
 
@@ -19,13 +19,33 @@ import {TOGGLE_CLICKED, DELETE_CLICKED} from '../constants';
 // 	);
 // };
 
-export default(state, {updateState, dispatch}) => {
+export default(state, {updateState, dispatch, updateProperties}) => {
 	const {inputValue} = state;
-	// const items = state.items || [];
-	const items = [
-		{task: 'Test 1', completed: false},
-		{task: 'Test 2', completed: false}
-	];
+	const items = state.items || [];
+	const filteredItems = state.items || [];
+	const allItems = state.items || [];
+	const toggleCountEnabledCount = items.filter(item => item.completed).length;
+	const toggleCountDisabledCount = items.filter(item => !item.completed).length;
+	const totalItemsCount = items.length;
+	const filter = state.filter || 'all';
+	console.log('toggleCountDisabledCount', toggleCountDisabledCount);
+	console.log('toggleCountEnabledCount', toggleCountEnabledCount);
+	console.log('totalItemsCount', totalItemsCount);
+	const displayedItems = allItems.filter(item => {
+		if(filter === 'all'){
+			return true;
+		}
+		if(filter === 'incomplete'){
+			return !item.completed;
+		}
+		if(filter === 'complete'){
+			return item.completed;
+		}
+	});
+	// const items = [
+	// 	{task: 'Test 1', completed: false},
+	// 	{task: 'Test 2', completed: false}
+	// ];
 	return (
 
 		<main className="checklist-container">
@@ -71,7 +91,7 @@ export default(state, {updateState, dispatch}) => {
 				size="md"
 				label="Add Items"
 				placeholder="What needs to be done?"
-				autoFocus
+				// autoFocus
 
 				value={inputValue}
 				on-input={(e) => updateState({inputValue: e.target.value})}
@@ -92,28 +112,38 @@ export default(state, {updateState, dispatch}) => {
 						</tr>
 					</thead>
 					<tbody className="now-table-body">
-						{items.map((item, index) => (checklistItem(item, index, dispatch)))}
+						{/* {items.map((item, index) => (checklistItem(item, index, dispatch)))} */}
+						{displayedItems.map((item, index) => (checklistItem(item, index, dispatch)))}
 					</tbody>
 			    </table>
 			</div>
 
 			<now-footer>
 				<div className="checklist-footer">
-					<p>2 items left(4 visible)	</p>
+					<p>
+						{/* {toggleCountDisabledCount} items left {totalItemsCount} visible */}
+						{toggleCountDisabledCount} item{toggleCountDisabledCount !== 1 ? 's' : ''} left {totalItemsCount} visible
+					</p>
 					<now-button
-						variant="primary"
+						// variant="primary"
+						variant={filter === 'all' ? 'primary' : 'secondary'}
 						size="sm"
 						label="Show All"
+						// on-click={() => dispatch(SHOW_ALL_ITEMS)}
+						on-click={() => updateState({filter: 'all'})}
 					/>
 					<now-button
-						variant="primary"
+						variant={filter === 'incomplete' ? 'primary' : 'secondary'}
 						size="sm"
 						label="Show Incomplete"
+						// on-click={() => updateState(!items.completed)}
+						on-click={() => updateState({filter: 'incomplete'})}
 					/>
 					<now-button
-						variant="primary"
+						variant={filter === 'complete' ? 'primary' : 'secondary'}
 						size="sm"
 						label="Show Complete"
+						on-click={() => updateState({filter: 'complete'})}
 					/>
 				</div>
 			</now-footer>

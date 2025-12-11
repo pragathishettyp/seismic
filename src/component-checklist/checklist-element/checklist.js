@@ -9,7 +9,8 @@ createCustomElement('checklist-element', {
 	view,
 	initialState: {
 		items: [],
-		inputValue: ''
+		inputValue: '',
+		filter: 'all'
 	},
 	styles,
 	...actions
