@@ -86,18 +86,35 @@ export default(state, {updateState, dispatch, updateProperties}) => {
 				/>
 			</now-header>
 
-			<now-input
+			{/* <now-input
 				className="now-checklist-input"
 				size="md"
 				label="Add Items"
 				placeholder="What needs to be done?"
-				// autoFocus
+				autoFocus
 
 				value={inputValue}
-				on-input={(e) => updateState({inputValue: e.target.value})}
+				// on-input={(e) => updateState({inputValue: e.target.value})}
 				on-keypress={(e) => {
 					const inputValue = e.target.value.trim();
-					if (e.key === 'Enter' && inputValue) {
+					// if (e.key === 'Enter' && inputValue) {
+					if (e.keyCode === ENTER_KEY_CODE && inputValue) {
+						dispatch('ADD_ITEM', {task: inputValue});
+					}
+				}}
+			/> */}
+
+
+			<input
+				className="now-checklist-input"
+				placeholder="What needs to be done?"
+				autoFocus
+				label = "Add Items"
+				value={inputValue}
+				on-keypress={({keyCode, target: {value}}) => {
+					const inputValue = value.trim();
+					// if (e.key === 'Enter' && inputValue) {
+					if (keyCode === ENTER_KEY_CODE && inputValue) {
 						dispatch('ADD_ITEM', {task: inputValue});
 					}
 				}}
@@ -136,6 +153,7 @@ export default(state, {updateState, dispatch, updateProperties}) => {
 						variant={filter === 'incomplete' ? 'primary' : 'secondary'}
 						size="sm"
 						label="Show Incomplete"
+
 						on-click={() => updateState({filter: 'incomplete'})}
 					/>
 					<now-button

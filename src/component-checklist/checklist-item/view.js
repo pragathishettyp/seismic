@@ -21,10 +21,10 @@ export default (item, index, dispatch) => {
 			<td className="now-table-toggle-cell">
                 <now-toggle size="md" label=""
                 checked={item.completed}
-                on-now-toggle__checked-changed={(e) => {
+                on-click={(e) => {
                     console.log('Toggle event:', e);
                     console.log('Toggle detail:', e.detail);
-                    dispatch(TOGGLE_CLICKED, {index})}
+                    dispatch('TOGGLE_CLICKED', {index})}
                 }/>
             </td>
 
