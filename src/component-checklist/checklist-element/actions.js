@@ -1,4 +1,4 @@
-// import {ADD_ITEM} from './constants';
+import {actionTypes} from '@servicenow/ui-core';
 import {
 	ADD_ITEM,
 	CHECKLIST_ITEM_ADD,
@@ -7,12 +7,13 @@ import {
 	DELETE_CLICKED,
 	SHOW_ALL_ITEMS,
 	SHOW_INCOMPLETE_ITEMS,
-	SHOW_COMPLETE_ITEMS
+	SHOW_COMPLETE_ITEMS,
+	COMPONENT_BOOTSTRAPPED
 } from '../constants';
 
 export default {
 	actionHandlers: {
-		COMPONENT_BOOTSTRAPPED: ({updateState}) => {
+		[actionTypes.COMPONENT_BOOTSTRAPPED]: ({updateState}) => {
 			console.log('🔄 Component loading...');
 			const savedItems = localStorage.getItem('checklistItems');
 			console.log('Saved items from localStorage:', savedItems);
@@ -37,6 +38,9 @@ export default {
 			// const items = [...state.items];
 			const items = [...(state.items || [])];
 			items.splice(action.payload.index, 1);
+			// Save to localStorage
+			localStorage.setItem('checklistItems', JSON.stringify(items));
+
 			updateState({items});
 		},
 
@@ -53,18 +57,6 @@ export default {
 					active: false
 				}
 			});
-		},
-
-		[SHOW_ALL_ITEMS]: ({updateState}) => {
-			updateState({filter: 'all'});
-		},
-
-		[SHOW_INCOMPLETE_ITEMS]: ({updateState}) => {
-			updateState({filter: 'incomplete'});
-		},
-
-		[SHOW_COMPLETE_ITEMS]: ({updateState}) => {
-			updateState({filter: 'complete'});
 		},
 
 		// [ADD_ITEM]: ({state, updateState, action}) => {

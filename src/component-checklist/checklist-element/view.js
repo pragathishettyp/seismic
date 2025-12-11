@@ -136,7 +136,6 @@ export default(state, {updateState, dispatch, updateProperties}) => {
 						variant={filter === 'incomplete' ? 'primary' : 'secondary'}
 						size="sm"
 						label="Show Incomplete"
-						// on-click={() => updateState(!items.completed)}
 						on-click={() => updateState({filter: 'incomplete'})}
 					/>
 					<now-button
