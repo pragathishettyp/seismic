@@ -8,6 +8,9 @@ import '../src/component-lifecycle-action-handler';
 import '../src/checklist-example/example-checklist';
 import '../src/checklist-example/example-checklist-item';
 import '../src/component-checklist/checklist-element';
+import '../src/task-board-example/example-task-board';
+import '../src/component-task-board/task-board';
+import '../src/agent-assist-example/agent-assist';
 const el = document.createElement('DIV');
 document.body.appendChild(el);
 
@@ -28,4 +31,9 @@ el.innerHTML = `
 	<example-checklist></example-checklist>
 	<example-checklist-item></example-checklist-item>
 	<hr style="margin: 30px 0;">
+	<example-task-board></example-task-board>
+	<hr style="margin: 30px 0;">
+	<component-task-board></component-task-board>
+	<hr style="margin: 30px 0;">
+	<example-agent-assist></example-agent-assist>
 `;
